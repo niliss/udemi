@@ -14,7 +14,7 @@ class CoursesController < ActionController::Base
  end
  
  def create
-    @course =  Course.create(course_params)
+    @course =  Course.create(course_params.merge(owner_id: current_user.id))
     if @course.save
       redirect_to root_path
     else

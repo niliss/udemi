@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
-	has_many :connectors
-    has_many :users, through: :connectors
+	has_and_belongs_to_many :users
+    validates :name, presence: true
+    belongs_to :owner,  class_name: "User"
+
 end

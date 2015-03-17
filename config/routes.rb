@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get 'subscriptions/subscribe/:id', to: "subscriptions#subscribe", as: "subscribe"
+
+  get 'subscriptions/unsubscribe/:id', to: "subscriptions#unsubscribe", as: "unsubscribe"
+
   devise_for :users
   resources :courses
-  resources :connectors
-  root 'courses#index'
+  
+
+  root  'courses#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
